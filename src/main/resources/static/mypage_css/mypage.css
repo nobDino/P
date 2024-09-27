@@ -379,11 +379,13 @@ form input:focus, form textarea:focus {
 }
 
 .my-historypayment th:nth-child(4) {
-	width: 70px; /* 네 번째 열 상태에 100px 고정 */
+	width: 60px; /* 네 번째 열 상태에 100px 고정 */
 }
 .my-historypayment th:nth-child(5) {
-	width: 90px; /* 네 번째 열 상태에 100px 고정 */
+	width: 85px; /* 네 번째 열 상태에 100px 고정 */
 }
+
+
 
 
 /*마이페이지 홈 블럭*/

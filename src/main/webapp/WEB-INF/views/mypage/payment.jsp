@@ -26,7 +26,9 @@
 	<!-- 프로필 섹션 -->
 	<div class="mainscreen">
 		<div class="profile-section">
-			<img id="profileImage" src="<%= customer.getProfileimg() != null ? customer.getProfileimg() : "/mypage_image/profile.png" %>" alt="프로필이미지" width="80" height="80" />
+			<img id="profileImage"
+				src="<%= customer.getProfileimg() != null ? customer.getProfileimg() : "/mypage_image/profile.png" %>"
+				alt="프로필이미지" width="80" height="80" />
 			<!-- <img src="/mypage_image/OO.png" alt="프로필이미지" width="80" height="80" /> -->
 			<div class="profile-info">
 				<h2><%=customer.getRealname()%>
@@ -96,8 +98,10 @@
 											varStatus="status">
 											<tr>
 												<td>${status.index + 1}</td>
+											
 												<td>${getPlist.itemName}</td>
 												<td>${getPlist.composition}</td>
+												
 												<td>${getPlist.totalprice}</td>
 												<td>${getPlist.created}</td>
 												<td class="retd">
@@ -150,16 +154,16 @@
 								<th>구성</th>
 								<th>결제금액</th>
 								<th>구매일</th>
-								
+
 							</tr>
 						</thead>
 						<tbody>
 							<c:choose>
 								<c:when test="${not empty canceledPayments}">
 									<c:forEach var="payment" items="${canceledPayments}"
-									varStatus="status1">
-											<tr>
-												<td>${status1.index + 1}</td>
+										varStatus="status1">
+										<tr>
+											<td>${status1.index + 1}</td>
 											<td>${payment.itemName}</td>
 											<td>${payment.composition}</td>
 											<td>${payment.totalprice}</td>
@@ -172,31 +176,31 @@
 										<td colspan="5">결제 취소 내역이 없습니다.</td>
 									</tr>
 								</c:otherwise>
-								
+
 							</c:choose>
 						</tbody>
 					</table>
 					<!-- 페이징 처리 -->
-						<div class="pagination">
-							<c:if test="${currentPage > 1}">
-								<a href="?page=${currentPage - 1}">이전</a>
-							</c:if>
+					<div class="pagination">
+						<c:if test="${currentPage > 1}">
+							<a href="?page=${currentPage - 1}">이전</a>
+						</c:if>
 
-							<c:forEach var="i" begin="1" end="${totalPages}">
-								<c:choose>
-									<c:when test="${i == currentPage}">
-										<span>${i}</span>
-									</c:when>
-									<c:otherwise>
-										<a href="?page=${i}">${i}</a>
-									</c:otherwise>
-								</c:choose>
-							</c:forEach>
+						<c:forEach var="i" begin="1" end="${totalPages}">
+							<c:choose>
+								<c:when test="${i == currentPage}">
+									<span>${i}</span>
+								</c:when>
+								<c:otherwise>
+									<a href="?page=${i}">${i}</a>
+								</c:otherwise>
+							</c:choose>
+						</c:forEach>
 
-							<c:if test="${currentPage < totalPages}">
-								<a href="?page=${currentPage + 1}">다음</a>
-							</c:if>
-						</div>
+						<c:if test="${currentPage < totalPages}">
+							<a href="?page=${currentPage + 1}">다음</a>
+						</c:if>
+					</div>
 					<button class="button" onclick="location.href='/store'">Store
 						바로가기</button>
 				</div>
